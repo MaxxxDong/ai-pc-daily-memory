@@ -1,0 +1,63 @@
+{
+  "id": "daily-2026-06-08-demo",
+  "date": "2026-06-08",
+  "mode": "daily-memory",
+  "objective": "整理今天的本地工作记忆，输出优先级待办、日程、未来跟进和来源引用。",
+  "notes": [
+    {
+      "id": "note-001",
+      "title": "AI PC Skill 参赛思路",
+      "body": "想法：把 AI 便签抽象成本地私人知识库 / 工作记忆 RAG Skill。\n待办：完成 ModelScope Skill 包和可复现 demo。\n明天跟进：补一版技术文章大纲。",
+      "createdAt": "2026-06-08T09:10:00+08:00"
+    },
+    {
+      "id": "note-002",
+      "title": "整理规则",
+      "body": "普通文章资料不要自动变成待办。只有明确写了待办、TODO、跟进、完成等行动语义时才进入任务清单。",
+      "createdAt": "2026-06-08T10:20:00+08:00"
+    }
+  ],
+  "journals": [
+    {
+      "id": "journal-001",
+      "title": "上午记录",
+      "body": "可以把隐私、本地运行、长期工作记忆作为参赛卖点。"
+    }
+  ],
+  "openTasks": [
+    {
+      "id": "task-001",
+      "title": "提交参赛材料",
+      "body": "待办：整理 Skill README 入口、验收命令和演示脚本。"
+    }
+  ],
+  "schedule": [
+    {
+      "id": "schedule-001",
+      "title": "参赛方案评审",
+      "time": "2026-06-08 16:00",
+      "description": "确认 demo 路径、评分点和真实模型验证方式。",
+      "location": "线上",
+      "link": ""
+    }
+  ],
+  "sourceDocuments": [
+    {
+      "id": "source-001",
+      "title": "ModelScope AIPC 活动摘要",
+      "body": "活动强调 AI PC、本地小模型、Agent Skill、可复现 demo 和技术文章。评分包括 Skill 可用性、场景价值、技术深度、文章质量和创新性。",
+      "sourceDate": "2026-06-08",
+      "url": "https://modelscope.cn/events/242/AI%20PC%20Agent%20Skills%20%E5%BE%81%E6%96%87%E6%B4%BB%E5%8A%A8"
+    },
+    {
+      "id": "source-duplicate",
+      "title": "ModelScope AIPC 活动摘要",
+      "body": "活动强调 AI PC、本地小模型、Agent Skill、可复现 demo 和技术文章。评分包括 Skill 可用性、场景价值、技术深度、文章质量和创新性。",
+      "sourceDate": "2026-06-08",
+      "url": "https://modelscope.cn/events/242/AI%20PC%20Agent%20Skills%20%E5%BE%81%E6%96%87%E6%B4%BB%E5%8A%A8"
+    }
+  ],
+  "notesDirs": ["notes"],
+  "sourceDirs": ["sources"]
+}
+

@@ -1,0 +1,13 @@
+.venv/
+.venv-*/
+.aipc-work-memory/
+**/.aipc-work-memory/
+out/
+**/out/
+work_memory_config.local.json
+tools/dws/
+tools/downloads/
+*-submission.zip
+__pycache__/
+*.pyc
+.DS_Store

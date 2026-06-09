@@ -1,0 +1,4 @@
+# Runtime uses Python standard library only.
+# Install pytest only if you want to run the bundled test suite with pytest.
+pytest>=8.0.0
+

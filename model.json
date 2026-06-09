@@ -1,0 +1,13 @@
+{
+  "name": "ai-pc-daily-memory",
+  "title": "AI PC Daily Memory",
+  "description": "A local-first Agent Skill that turns explicitly configured notes, documents, schedules, links, DingTalk, Feishu, and Obsidian sources into a private daily memory with local rerank and validated save-back.",
+  "version": "0.1.0",
+  "entry": "SKILL.md",
+  "tags": ["AIPC", "RAG", "local-first", "work-memory", "daily-organize", "OpenVINO", "localhost"],
+  "runtime": {
+    "language": "python",
+    "python": ">=3.10",
+    "network": "not-required-for-agent-mode"
+  }
+}

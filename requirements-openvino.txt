@@ -1,0 +1,5 @@
+# Optional dependencies for the OpenVINO rerank demo.
+# The default skill runtime uses Python standard library only.
+numpy>=1.24.0
+transformers>=4.44.0
+optimum-intel[openvino]>=1.20.0

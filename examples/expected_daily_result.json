@@ -1,0 +1,77 @@
+{
+  "requestId": "daily-2026-06-08-demo",
+  "summary": "已整理本地工作记忆：5 个主题、4 个待办、1 条日程。",
+  "themes": [
+    "AI PC Skill 参赛思路",
+    "本地工作记忆演示",
+    "上午记录",
+    "提交参赛材料",
+    "ModelScope AIPC 活动摘要"
+  ],
+  "ideas": [
+    "想法：把 AI 便签抽象成本地私人知识库 / 工作记忆 RAG Skill。",
+    "想法：演示时强调 Skill 与具体笔记 App 解耦，可以适配任意本地知识库。",
+    "可以把隐私、本地运行、长期工作记忆作为参赛卖点。",
+    "本地 RAG 可以先用关键词和 BM25 完成召回，再在后续版本接入本地 embedding 或 OpenVINO 优化。"
+  ],
+  "tasks": [
+    "完成 ModelScope Skill 包和可复现 demo。",
+    "明天跟进：补一版技术文章大纲。",
+    "录制 3-5 分钟演示，展示从本地笔记到每日整理结果的完整流程。",
+    "整理 Skill README 入口、验收命令和演示脚本。"
+  ],
+  "taskReferences": [
+    {
+      "task": "完成 ModelScope Skill 包和可复现 demo。",
+      "sourceTitle": "AI PC Skill 参赛思路",
+      "sourceNoteId": "note-001",
+      "sourceDate": "2026-06-08T09:10:00+08:00",
+      "note": "来源中包含明确行动或排期语义。"
+    },
+    {
+      "task": "明天跟进：补一版技术文章大纲。",
+      "sourceTitle": "AI PC Skill 参赛思路",
+      "sourceNoteId": "note-001",
+      "sourceDate": "2026-06-08T09:10:00+08:00",
+      "note": "来源中包含明确行动或排期语义。"
+    },
+    {
+      "task": "录制 3-5 分钟演示，展示从本地笔记到每日整理结果的完整流程。",
+      "sourceTitle": "本地工作记忆演示",
+      "sourceNoteId": "file:d6f73faf6e7f",
+      "sourceDate": "",
+      "note": "来源中包含明确行动或排期语义。"
+    },
+    {
+      "task": "整理 Skill README 入口、验收命令和演示脚本。",
+      "sourceTitle": "提交参赛材料",
+      "sourceNoteId": "task-001",
+      "sourceDate": "",
+      "note": "来源中包含明确行动或排期语义。"
+    }
+  ],
+  "schedule": [
+    {
+      "time": "2026-06-08 16:00",
+      "title": "参赛方案评审",
+      "description": "确认 demo 路径、评分点和真实模型验证方式。",
+      "location": "线上",
+      "link": "",
+      "sourceTitle": "参赛方案评审"
+    }
+  ],
+  "defer": [],
+  "links": [
+    "https://modelscope.cn/events/242/AI%20PC%20Agent%20Skills%20%E5%BE%81%E6%96%87%E6%B4%BB%E5%8A%A8"
+  ],
+  "dailySynthesis": [
+    "已从 8 条本地来源中召回 8 条相关材料，并按内容 hash 去重。",
+    "本结果由 mock 模式生成，用于稳定演示 Skill 的读取、召回、整理和校验闭环。",
+    "包含未来日期或后续跟进事项；这些事项仍作为待办/后续事项处理，不归入暂缓。",
+    "检测到链接来源，已集中放入 links 字段，避免在摘要中重复展开。"
+  ],
+  "kindleCard": {
+    "title": "今日工作记忆",
+    "body": "已整理本地工作记忆：5 个主题、4 个待办、1 条日程。\n完成 ModelScope Skill 包和可复现 demo。\n明天跟进：补一版技术文章大纲。\n录制 3-5 分钟演示，展示从本地笔记到每日整理结果的完整流程。"
+  }
+}
