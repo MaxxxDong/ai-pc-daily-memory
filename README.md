@@ -29,15 +29,29 @@ python -m pip install -U pip pytest
 python -m pytest tests -q
 ```
 
+## Local Model Setup
+
+The contest path uses a local `<=35B` model as the Agent brain. If the judge or user runs the package outside an existing Agent host, pull and verify the Ollama model with:
+
+```bash
+python scripts/download_ollama_model.py --model qwen3.6-35b-a3b
+```
+
+If the contest model is published under a different Ollama registry name, pass that exact name with `--model`. The standalone local LLM client reads `AIPC_LLM_BASE_URL` and `AIPC_LLM_MODEL`; keep the base URL on localhost, for example `http://localhost:11434/v1`.
+
 ## Optional OpenVINO Rerank
 
-Default verification uses the deterministic `token` backend. To capture OpenVINO evidence, install optional dependencies and point the tool at a local OpenVINO embedding model directory:
+Default verification uses the deterministic `token` backend. To capture OpenVINO evidence, install optional dependencies and create a local OpenVINO embedding model directory:
 
 ```bash
 python -m pip install -r requirements-openvino.txt
+python scripts/prepare_openvino_embedding.py \
+  --model-id BAAI/bge-small-zh-v1.5 \
+  --output models/openvino/bge-small-zh-v1.5
+
 python scripts/verify_submission.py \
   --embedding-backend openvino \
-  --embedding-model /absolute/path/to/local-openvino-embedding-model
+  --embedding-model models/openvino/bge-small-zh-v1.5
 ```
 
 The OpenVINO model path must be local. The code uses `local_files_only=True` and does not download remote models in the contest path.
@@ -49,7 +63,7 @@ The OpenVINO model path must be local. The code uses `local_files_only=True` and
 | `SKILL.md` | Main Agent Skill instructions |
 | `AGENT_RUNBOOK.md` | Single-file runbook for local agents and judges |
 | `model.json` | ModelScope Skill metadata |
-| `scripts/` | Local source sync, rerank, validation, and save-back tools |
+| `scripts/` | Local source sync, model setup, rerank, validation, and save-back tools |
 | `examples/` | Offline demo, prompt, sample config, and OpenVINO notes |
 | `tests/` | Deterministic pytest coverage |
 | `docs/submission-checklist.md` | ModelScope submission checklist |

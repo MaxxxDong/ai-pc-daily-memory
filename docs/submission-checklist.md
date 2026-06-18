@@ -8,7 +8,8 @@
 | 代码 | `scripts/`、`tests/`、`examples/` | 随主 Skill 一起提交；如果平台支持 sibling skills，再补交 3 个子 Skill 目录。 |
 | 文档 | `README.md`、`AGENT_RUNBOOK.md`、`examples/demo-workday/README.md` | 主入口写 `AGENT_RUNBOOK.md`，评委先跑 `scripts/verify_submission.py`。 |
 | 测试用例 | `tests/`、`scripts/verify_submission.py` | 本地运行 `python scripts/verify_submission.py` 和 `python -m pytest tests -q`。 |
-| 技术文章 | `modelscope-skills/submission-article-draft.md` | 在魔搭研习社发布，添加 `Intel AI PC` 标签。 |
+| 技术文章 | `docs/modelscope-learn-article.md` | 已发布到 `https://www.modelscope.cn/learn/434338`，提交表必须填写这个 URL，不要填写文章标题。 |
+| 模型准备脚本 | `scripts/download_ollama_model.py`、`scripts/prepare_openvino_embedding.py` | 提供 Ollama 模型拉取/校验和 OpenVINO embedding 下载转换命令。 |
 
 ## 发布步骤
 
@@ -26,18 +27,35 @@ git archive --format=zip \
   HEAD
 ```
 
-3. 可选：如果本机已有 OpenVINO embedding 模型目录，运行：
+3. 可选：准备本地模型。Ollama Agent 大脑：
+
+```bash
+python scripts/download_ollama_model.py --model qwen3.6-35b-a3b
+```
+
+如果赛事基准模型在 Ollama registry 中名称不同，改用实际模型名并同步设置 `AIPC_LLM_MODEL`。
+
+4. 可选：准备 OpenVINO embedding 模型目录：
+
+```bash
+python -m pip install -r requirements-openvino.txt
+python scripts/prepare_openvino_embedding.py \
+  --model-id BAAI/bge-small-zh-v1.5 \
+  --output models/openvino/bge-small-zh-v1.5
+```
+
+5. 可选：如果本机已有 OpenVINO embedding 模型目录，运行：
 
 ```bash
 python scripts/verify_submission.py \
   --embedding-backend openvino \
-  --embedding-model /absolute/path/to/local-openvino-embedding-model
+  --embedding-model models/openvino/bge-small-zh-v1.5
 ```
 
-4. 打开 `https://www.modelscope.cn/skills`，点击“新建 skill”，上传 `ai-pc-daily-memory-submission.zip` 或主 Skill 目录。
-5. Skill 标签至少包含 `AIPC`；描述中明确写：本地 `<=35B` Agent 大脑、localhost、本地 OpenVINO/embedding rerank、私有工作记忆。
-6. 打开 `https://www.modelscope.cn/learn`，点击“创建文章”，粘贴 `submission-article-draft.md`，添加 `Intel AI PC` 标签。
-7. 把 Skill 链接补进文章，再把文章链接补回 Skill 说明。
+6. 打开 `https://www.modelscope.cn/skills`，点击“新建 skill”，上传 `ai-pc-daily-memory-submission.zip` 或主 Skill 目录。
+7. Skill 标签至少包含 `AIPC`；描述中明确写：本地 `<=35B` Agent 大脑、localhost、本地 OpenVINO/embedding rerank、私有工作记忆。
+8. 打开 `https://www.modelscope.cn/learn`，点击“创建文章”，粘贴 `docs/modelscope-learn-article.md`，添加 `Intel AI PC` 标签。
+9. 活动提交表的研习社文章链接填写 `https://www.modelscope.cn/learn/434338`；Skill 链接填写 `https://modelscope.cn/skills/dwj0725/ai-pc-daily-memory`。
 
 ## 建议截图
 

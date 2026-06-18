@@ -25,6 +25,15 @@ If the user wants "pull my configured work materials and organize today", start 
 
 For contest judging or pre-submit verification, run `python scripts/verify_submission.py` from this skill directory. It exercises offline source sync, local rerank, DailyResult validation, and save-back without requiring DingTalk, Feishu, Codex, or network access.
 
+If the environment needs model preparation, use the bundled scripts instead of ad hoc commands:
+
+```powershell
+python scripts\download_ollama_model.py --model qwen3.6-35b-a3b
+python scripts\prepare_openvino_embedding.py --model-id BAAI/bge-small-zh-v1.5 --output models\openvino\bge-small-zh-v1.5
+```
+
+If the benchmark model is published under a different Ollama registry name, pass that exact name with `--model` and set `AIPC_LLM_MODEL` consistently. `prepare_openvino_embedding.py` creates the local directory consumed by `local_ai_rerank.py --backend openvino`.
+
 ```powershell
 python scripts\sync_work_memory.py --config examples\work_memory_config.sample.json
 ```
@@ -84,6 +93,7 @@ Local AI rerank tool:
 
 ```powershell
 python scripts\local_ai_rerank.py --memory-home .aipc-work-memory --query "今天会议 今天要做什么 今天看的文章" --backend token --output out\local_rerank.json
+python scripts\local_ai_rerank.py --memory-home .aipc-work-memory --query "今天会议 今天要做什么 今天看的文章" --backend openvino --model models\openvino\bge-small-zh-v1.5 --output out\local_rerank.json
 ```
 
 Use `token` for deterministic tests. For an AI PC demo, use `localhost-embeddings` against a local embedding endpoint or `openvino` against a local OpenVINO embedding model directory. Never call a remote embedding API in the contest path.

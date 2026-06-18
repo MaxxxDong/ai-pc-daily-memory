@@ -7,6 +7,7 @@ out/
 work_memory_config.local.json
 tools/dws/
 tools/downloads/
+models/
 *-submission.zip
 __pycache__/
 *.pyc

@@ -17,6 +17,40 @@
 
 任何路径都不要扫描 `/`、用户 home、全盘目录、所有云文档或所有知识库。只能读取配置文件里明确列出的目录、vault、URL、token、node id、时间范围和文件。
 
+### 本地模型下载/转换脚本
+
+评审基准如果已经提供 Ollama + Qwen3.6-35B-A3B，可以直接使用现有服务。若需要自行准备，可从仓库根目录运行：
+
+```bash
+python scripts/download_ollama_model.py --model qwen3.6-35b-a3b
+```
+
+如果 Ollama registry 中的模型名不同，请把 `--model` 改成实际名称，并同步设置：
+
+```bash
+export AIPC_LLM_BASE_URL=http://localhost:11434/v1
+export AIPC_LLM_MODEL=<OLLAMA_MODEL_NAME>
+```
+
+OpenVINO embedding 模型可用脚本下载并转换成本地目录：
+
+```bash
+python -m pip install -r requirements-openvino.txt
+python scripts/prepare_openvino_embedding.py \
+  --model-id BAAI/bge-small-zh-v1.5 \
+  --output models/openvino/bge-small-zh-v1.5
+```
+
+转换后用本地目录验证：
+
+```bash
+python scripts/verify_submission.py \
+  --embedding-backend openvino \
+  --embedding-model models/openvino/bge-small-zh-v1.5
+```
+
+这两个准备脚本都有 `--dry-run`，可在无网环境先检查实际命令。Ollama endpoint 必须是 localhost；OpenVINO rerank 只读取本地模型目录。
+
 ## 2. 最短可跑路径：离线 demo
 
 这个路径不需要网络、钉钉、飞书、Codex 或本地模型，适合评委先验证 Skill 链路。
@@ -190,6 +224,7 @@ python scripts/local_ai_rerank.py \
 真实 AI PC 演示建议改成本地 embedding：
 
 ```bash
+python scripts/download_ollama_model.py --model qwen3.6-35b-a3b
 python scripts/local_ai_rerank.py \
   --memory-home .aipc-work-memory \
   --query "今天会议 今天要做什么 今天看的文章" \
@@ -202,11 +237,15 @@ python scripts/local_ai_rerank.py \
 或 OpenVINO 本地模型目录：
 
 ```bash
+python scripts/prepare_openvino_embedding.py \
+  --model-id BAAI/bge-small-zh-v1.5 \
+  --output models/openvino/bge-small-zh-v1.5
+
 python scripts/local_ai_rerank.py \
   --memory-home .aipc-work-memory \
   --query "今天会议 今天要做什么 今天看的文章" \
   --backend openvino \
-  --model /absolute/path/to/openvino-embedding-model \
+  --model models/openvino/bge-small-zh-v1.5 \
   --output out/local_rerank.json
 ```
 
