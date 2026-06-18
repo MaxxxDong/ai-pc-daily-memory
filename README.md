@@ -78,10 +78,15 @@ The OpenVINO model path must be local. The code uses `local_files_only=True` and
 
 ## ModelScope Submission
 
-Create a clean zip from tracked files only:
+Use GitHub import as the primary submission path:
+
+1. Push this repository to GitHub.
+2. In ModelScope Skills Center, create a Skill from the GitHub repository URL.
+3. Select all repository files during import. The repository root intentionally contains exactly one `SKILL.md`; README, docs, scripts, examples, tests, `model.json`, and requirements files are part of the Skill project evidence.
+4. Add the `AIPC` tag and use the ModelScope Skill URL in the activity form.
+
+Optional backup package from tracked files only:
 
 ```bash
 git archive --format=zip -o ai-pc-daily-memory-submission.zip HEAD
 ```
-
-Upload the zip or the repository root to ModelScope Skills Center and add the `AIPC` tag.

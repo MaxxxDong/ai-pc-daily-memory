@@ -4,7 +4,7 @@
 
 | 项目 | 当前材料 | 提交动作 |
 | --- | --- | --- |
-| Skill 作品包 | 仓库根目录 | 在 ModelScope Skills Center 新建 Skill，上传当前仓库根目录或干净 zip，添加 `AIPC` 标签。 |
+| Skill 作品包 | GitHub 仓库根目录 | 在 ModelScope Skills Center 选择“从 Github 仓库快速创建”，导入当前公开仓库；根目录只能有一个 `SKILL.md`，但 README/docs/scripts/examples/tests/model.json/requirements 都应一并勾选。 |
 | 代码 | `scripts/`、`tests/`、`examples/` | 随主 Skill 一起提交；如果平台支持 sibling skills，再补交 3 个子 Skill 目录。 |
 | 文档 | `README.md`、`AGENT_RUNBOOK.md`、`examples/demo-workday/README.md` | 主入口写 `AGENT_RUNBOOK.md`，评委先跑 `scripts/verify_submission.py`。 |
 | 测试用例 | `tests/`、`scripts/verify_submission.py` | 本地运行 `python scripts/verify_submission.py` 和 `python -m pytest tests -q`。 |
@@ -52,10 +52,11 @@ python scripts/verify_submission.py \
   --embedding-model models/openvino/bge-small-zh-v1.5
 ```
 
-6. 打开 `https://www.modelscope.cn/skills`，点击“新建 skill”，上传 `ai-pc-daily-memory-submission.zip` 或主 Skill 目录。
-7. Skill 标签至少包含 `AIPC`；描述中明确写：本地 `<=35B` Agent 大脑、localhost、本地 OpenVINO/embedding rerank、私有工作记忆。
-8. 打开 `https://www.modelscope.cn/learn`，点击“创建文章”，粘贴 `docs/modelscope-learn-article.md`，添加 `Intel AI PC` 标签。
-9. 活动提交表的研习社文章链接填写 `https://www.modelscope.cn/learn/434338`；Skill 链接填写 `https://modelscope.cn/skills/dwj0725/ai-pc-daily-memory`。
+6. 打开 `https://www.modelscope.cn/skills`，点击“新建 skill”，选择“从 Github 仓库快速创建”，填写 `https://github.com/MaxxxDong/ai-pc-daily-memory`。
+7. 在文件选择步骤勾选全部项目文件。根目录必须只有一个 `SKILL.md`，但 README、`AGENT_RUNBOOK.md`、docs、scripts、examples、tests、`model.json`、requirements 文件都要导入。
+8. Skill 标签至少包含 `AIPC`；描述中明确写：本地 `<=35B` Agent 大脑、localhost、本地 OpenVINO/embedding rerank、私有工作记忆。
+9. 打开 `https://www.modelscope.cn/learn`，点击“创建文章”，粘贴 `docs/modelscope-learn-article.md`，添加 `Intel AI PC` 标签。
+10. 活动提交表的研习社文章链接填写 `https://www.modelscope.cn/learn/434338`；Skill 链接填写 GitHub 导入版 `https://modelscope.cn/skills/dwj0725/ai-pc-daily-memory-aipc`。
 
 ## 建议截图
 
