@@ -11,7 +11,7 @@ This skill is model-agnostic. It does not depend on Codex, a cloud model, a spec
 
 For a single-file runbook covering offline/online, DingTalk, Feishu, local folders, Obsidian, local rerank, and final save-back states, read `AGENT_RUNBOOK.md` first.
 
-`AIPC_LLM_BASE_URL` and `AIPC_LLM_MODEL` are optional standalone CLI variables only. Use them when running this package outside an agent host and you want `organize_daily.py` to call a local OpenAI-compatible endpoint by itself.
+`AIPC_LLM_BASE_URL` and `AIPC_LLM_MODEL` are optional standalone CLI variables only. Use them when running this package outside an agent host and you want `organize_daily.py` to call a local Chat API-compatible endpoint by itself.
 
 ## Dispatch
 
@@ -127,7 +127,7 @@ python scripts\organize_daily.py --input examples\daily_request.sample.json --ou
 python scripts\validate_daily_result.py out\daily_result.json
 ```
 
-Standalone local-endpoint mode is optional. Run with a local OpenAI-compatible endpoint by omitting `--mock` and setting `AIPC_LLM_BASE_URL` / `AIPC_LLM_MODEL`.
+Standalone local-endpoint mode is optional. Run with a local Chat API-compatible endpoint by omitting `--mock` and setting `AIPC_LLM_BASE_URL` / `AIPC_LLM_MODEL`.
 
 ## Output Rules
 

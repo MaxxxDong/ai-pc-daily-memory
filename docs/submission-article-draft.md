@@ -51,7 +51,7 @@ out/final_daily_memory.md
 | Backend | 用途 | 本地性 |
 | --- | --- | --- |
 | `token` | 无模型环境下的确定性验收 | 纯 Python、本地运行 |
-| `localhost-embeddings` | 调用本机 OpenAI-compatible embedding 服务 | endpoint 只允许 `localhost / 127.0.0.1 / ::1` |
+| `localhost-embeddings` | 调用本机 Chat API-compatible embedding 服务 | endpoint 只允许 `localhost / 127.0.0.1 / ::1` |
 | `openvino` | 调用本地 OpenVINO embedding 模型目录 | `local_files_only=True`，不下载云端模型 |
 
 OpenVINO 路径示例：
